@@ -131,10 +131,10 @@ public class Main
             System.out.println("\nIs the garbage disposed of? Enter '0' for no or '1' for yes: ");
             trash = validInputCheck(trash);
 
-            System.out.println("\nAre all the drawers closed? Enter '0' for no or '1' for yes: ");
-            closeDrawers = validInputCheck(closeDrawers);
+            //System.out.println("\nAre all the drawers closed? Enter '0' for no or '1' for yes: ");
+            //closeDrawers = validInputCheck(closeDrawers);
 
-            if((stove == 1) && ((mail == 0) || ((mail == 1) && (openmail == 1))) && (kitchenCounter == 1) && (trash == 1) && (closeDrawers == 1)) {
+            if((stove == 1) && ((mail == 0) || ((mail == 1) && (openmail == 1))) && (kitchenCounter == 1) && (trash == 1)) {
 
                 System.out.println("\n\nYour afternoon chores are done.");
             }
@@ -159,10 +159,10 @@ public class Main
                     counterB ++;
                     System.out.println(counterB + ". The trash needs to be emptied.");
                 }
-                if(closeDrawers == 0) {
-                    counterB ++;
-                    System.out.println(counterB + ". You have to close all the drawers.");
-                }
+                //if(closeDrawers == 0) {
+                //    counterB ++;
+                //    System.out.println(counterB + ". You have to close all the drawers.");
+                //}
             }
         }
 
