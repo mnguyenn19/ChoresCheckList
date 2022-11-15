@@ -1,3 +1,4 @@
+package org.example;
 /*
 Student: Michelle Nguyen & Angel Trujillo
 Professor: Allison Sullivan
@@ -8,7 +9,7 @@ Assignment: Logic Based Testing
 
 import java.util.Scanner;
 
-public class Main
+public class checkChoresList
 {
     static int validInputCheck(int input) {
         Scanner reader = new Scanner(System.in);
@@ -38,9 +39,93 @@ public class Main
         }
         return input;
     }
+    
+    public int choresCheckMorning(int response, int awake, int bed, int floor, int vacuum, int dishes) {
+    	int done = 0;
+    	if(response == 0) {
+            //morning
+
+            if((awake == 1) && (bed == 1) && ((floor == 0) || ((floor == 1) && (vacuum == 1))) && (dishes == 1)) {
+                System.out.println("\n\nYour morning chores are done.");
+                done = 1;
+            }
+
+            else {
+                System.out.println("\n\nYou are not done with your chores.\n----------------------------------");
+                done = 0;
+                int counter = 0;
+
+                if(awake == 0) {
+                    counter ++;
+                    System.out.println(counter + ". You have to be awake to do your chores.");
+                }
+                if(bed == 0) {
+                    counter ++;
+                    System.out.println(counter + ". You still have to make your bed.");
+                }
+                if((floor == 1) && (vacuum == 0)) {
+                    counter ++;
+                    System.out.println(counter + ". The floor is dirty.");
+                }
+                if(dishes == 0) {
+                    counter ++;
+                    System.out.println(counter + ". The dishes need to be done.");
+                }
+                //if(laundry == 0) {
+                //    counter ++;
+                //    System.out.println(counter + ". There are dirty clothes that need to be washed.");
+                //}
+            }
+        }
+
+    	return done; 
+    }
+    
+    public int choresCheckAfternoon(int response, int stove, int mail, int openmail, int kitchenCounter, int trash) {
+    	int done = 0;
+ 
+        if(response == 1) {
+            //afternoon
+
+            if((stove == 1) && ((mail == 0) || ((mail == 1) && (openmail == 1))) && (kitchenCounter == 1) && (trash == 1)) {
+                System.out.println("\n\nYour afternoon chores are done.");
+                done = 1;
+            }
+
+            else {
+                System.out.println("\n\nYou are not done with your chores.\n----------------------------------");
+                done = 0;
+                int counterB = 0;
+
+                if(stove == 0) {
+                    counterB ++;
+                    System.out.println(counterB + ". The stove is not clean.");
+                }
+                if((mail == 1) && (openmail == 0)) {
+                    counterB ++;
+                    System.out.println(counterB + ". You still need to read your mail.");
+                }
+                if(kitchenCounter == 0) {
+                    counterB ++;
+                    System.out.println(counterB + ". The kitchen counter is still dirty.");
+                }
+                if(trash == 0) {
+                    counterB ++;
+                    System.out.println(counterB + ". The trash needs to be emptied.");
+                }
+                //if(closeDrawers == 0) {
+                //    counterB ++;
+                //    System.out.println(counterB + ". You have to close all the drawers.");
+                //}
+            }
+        }
+    	return done; 
+    }
+    
     public static void main(String[] args) {
 
         int response = 0;
+        int done = 0;
 
         //morning chores
         int awake = 0;
@@ -85,10 +170,12 @@ public class Main
 
             if((awake == 1) && (bed == 1) && ((floor == 0) || ((floor == 1) && (vacuum == 1))) && (dishes == 1)) {
                 System.out.println("\n\nYour morning chores are done.");
+                done = 1;
             }
 
             else {
                 System.out.println("\n\nYou are not done with your chores.\n----------------------------------");
+                done = 0;
                 int counter = 0;
 
                 if(awake == 0) {
@@ -135,12 +222,13 @@ public class Main
             //closeDrawers = validInputCheck(closeDrawers);
 
             if((stove == 1) && ((mail == 0) || ((mail == 1) && (openmail == 1))) && (kitchenCounter == 1) && (trash == 1)) {
-
                 System.out.println("\n\nYour afternoon chores are done.");
+                done = 1;
             }
 
             else {
                 System.out.println("\n\nYou are not done with your chores.\n----------------------------------");
+                done = 0;
                 int counterB = 0;
 
                 if(stove == 0) {
